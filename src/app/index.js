@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import "./styles.css";
 
 const INITIAL_VALUES = {
@@ -7,19 +8,19 @@ const INITIAL_VALUES = {
   password: "",
 };
 
-const validationDefinitions = (values) => {
-  const errors = {};
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
-  }
-
-  if (!values.password) {
-    errors.password = "Required";
-  }
-  return errors;
+const VALIDATIONS = {
+  REQUIRED: "Value Required",
 };
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .required(VALIDATIONS.REQUIRED)
+    .matches(
+      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      "Invalid email address"
+    ),
+  password: Yup.string().required(VALIDATIONS.REQUIRED),
+});
 
 const handleSubmit = (values, setSubmitting) => {
   alert(JSON.stringify(values));
@@ -32,7 +33,7 @@ const App = () => {
       <h1>A Formik Form</h1>
       <Formik
         initialValues={INITIAL_VALUES}
-        validate={validationDefinitions}
+        validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           handleSubmit(values, setSubmitting);
         }}
