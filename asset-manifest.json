@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/formik-tutorial/static/css/main.d9906fb4.chunk.css",
+    "main.js": "/formik-tutorial/static/js/main.48ad4752.chunk.js",
+    "main.js.map": "/formik-tutorial/static/js/main.48ad4752.chunk.js.map",
+    "runtime-main.js": "/formik-tutorial/static/js/runtime-main.6afd28f1.js",
+    "runtime-main.js.map": "/formik-tutorial/static/js/runtime-main.6afd28f1.js.map",
+    "static/js/2.3db9e050.chunk.js": "/formik-tutorial/static/js/2.3db9e050.chunk.js",
+    "static/js/2.3db9e050.chunk.js.map": "/formik-tutorial/static/js/2.3db9e050.chunk.js.map",
+    "index.html": "/formik-tutorial/index.html",
+    "precache-manifest.c4843e4a78f1aad4a15473d9420539ef.js": "/formik-tutorial/precache-manifest.c4843e4a78f1aad4a15473d9420539ef.js",
+    "service-worker.js": "/formik-tutorial/service-worker.js",
+    "static/css/main.d9906fb4.chunk.css.map": "/formik-tutorial/static/css/main.d9906fb4.chunk.css.map",
+    "static/js/2.3db9e050.chunk.js.LICENSE.txt": "/formik-tutorial/static/js/2.3db9e050.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6afd28f1.js",
+    "static/js/2.3db9e050.chunk.js",
+    "static/css/main.d9906fb4.chunk.css",
+    "static/js/main.48ad4752.chunk.js"
+  ]
+}
