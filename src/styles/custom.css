@@ -1,0 +1,15 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.container > h1 {
+  color: deeppink;
+}
+
+.form-container {
+  border-top: 10px deeppink dotted;
+  margin-top: 5rem;
+  width: 50%;
+}

@@ -28,7 +28,7 @@ const handleSubmit = (values, setSubmitting) => {
 
 const BasicForm = () => {
   return (
-    <>
+    <div className="form-container">
       <h1>A Basic Formik Form</h1>
       <Formik
         initialValues={INITIAL_VALUES}
@@ -41,8 +41,11 @@ const BasicForm = () => {
           const { isSubmitting } = formProps;
           return (
             <Form>
+              <label htmlFor="email">Email Address</label>
               <Field type="email" name="email" />
               <ErrorMessage name="email" component="div" />
+
+              <label htmlFor="password">Password</label>
               <Field type="password" name="password" />
               <ErrorMessage name="password" component="div" />
               <button type="submit" disabled={isSubmitting}>
@@ -52,7 +55,7 @@ const BasicForm = () => {
           );
         }}
       </Formik>
-    </>
+    </div>
   );
 };
 
