@@ -33,7 +33,7 @@ const errorContainer = (props) => (
 const BasicForm = () => {
   return (
     <div className="form-container">
-      <h1>A Basic Formik Form</h1>
+      <h2>A Basic Formik Form</h2>
       <Formik
         initialValues={INITIAL_VALUES}
         validationSchema={validationSchema}
