@@ -115,9 +115,27 @@ const MyCheckbox = ({ children, ...props }) => {
 // definitions
 const formDefinitions = [
   {
+    name: "formType",
+    type: ["typeA", "typeB", "typeC"],
+    render: (resetForm, setFormType) => (
+      <MySelect
+        onChange={(e) => {
+          setFormType(e.target.value);
+          resetForm();
+        }}
+        label="Form Type"
+        name="type"
+      >
+        <option value="typeA">A</option>
+        <option value="typeB">B</option>
+        <option value="typeC">C</option>
+      </MySelect>
+    ),
+  },
+  {
     name: "firstName",
     type: ["typeA"],
-    render: (
+    render: () => (
       <MyTextInput
         key="firstNameKey"
         label="First Name"
@@ -130,7 +148,7 @@ const formDefinitions = [
   {
     name: "lastName",
     type: ["typeB"],
-    render: (
+    render: () => (
       <MyTextInput
         key="lastNameKey"
         label="Last Name"
@@ -143,7 +161,7 @@ const formDefinitions = [
   {
     name: "email",
     type: ["typeA"],
-    render: (
+    render: () => (
       <MyTextInput
         key="email"
         label="Email Address"
@@ -156,7 +174,7 @@ const formDefinitions = [
   {
     name: "jobType",
     type: ["typeA", "typeB"],
-    render: (
+    render: () => (
       <MySelect label="Job Type" name="jobType" key="jobType">
         <option value="">Select a job type</option>
         <option value="designer">Designer</option>
@@ -169,7 +187,7 @@ const formDefinitions = [
   {
     name: "terms",
     type: ["typeA", "typeB", "typeC"],
-    render: (
+    render: () => (
       <MyCheckbox name="acceptedTerms" key="terms">
         I accept the terms and conditions
       </MyCheckbox>
@@ -205,22 +223,10 @@ const DynamicForm = () => {
           <div className="form-container">
             <h2>Dynamic Formik Form</h2>
             <Form>
-              <MySelect
-                onChange={(e) => {
-                  setFormType(e.target.value);
-                  resetForm();
-                }}
-                label="Form Type"
-                name="type"
-              >
-                <option defaultValue value="typeA">
-                  A
-                </option>
-                <option value="typeB">B</option>
-                <option value="typeC">C</option>
-              </MySelect>
               {formDefinitions.map((formItem) => {
-                return formItem.type.includes(formType) && formItem.render;
+                return formItem.name === "formType"
+                  ? formItem.render(resetForm, setFormType)
+                  : formItem.type.includes(formType) && formItem.render();
               })}
               <button type="submit" disabled={isSubmitting}>
                 Submit
