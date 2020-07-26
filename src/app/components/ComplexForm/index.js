@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, useField } from "formik";
+import { Formik, useField, Form } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
@@ -92,7 +92,7 @@ const ComplexForm = () => {
         return (
           <div className="form-container">
             <h2>A litle bit more complex Formik Form</h2>
-            <form onSubmit={formik.handleSubmit}>
+            <Form>
               <MyTextInput
                 label="First Name"
                 name="firstName"
@@ -129,7 +129,7 @@ const ComplexForm = () => {
               <button type="submit" disabled={isSubmitting}>
                 Submit
               </button>
-            </form>
+            </Form>
           </div>
         );
       }}
